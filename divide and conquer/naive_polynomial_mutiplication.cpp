@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 int main()
 {
@@ -24,5 +23,5 @@ int main()
     }
 
     for (int i = 0; i < 2 * n - 1; i++)
-        cout << product[i] << endl;
+        std::cout << product[i] << std::endl;
 }

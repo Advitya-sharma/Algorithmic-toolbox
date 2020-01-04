@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 int main()
 {
 
@@ -28,6 +26,6 @@ int main()
 
     for (int i = 0; i < n; i++)
     {
-        cout << array[i] << endl;
+        std::cout << array[i] << std::endl;
     }
 }
