@@ -1,55 +1,65 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-void Merge(int A[], int l, int m, int r)
-{
+void merge(int arr[],int l,int r);
+void merge_sort(int arr[],int l,int r);
 
-    int i = l, j = m + 1, in = l;
-    int arr[r + 1];
-    while (i <= m && j <= r)
-    {
-        if (A[i] < A[j])
-        {
-            arr[in++] = A[i++];
+void merge(int arr[],int l,int m,int r){
+    
+    int A[100],i=l,j=m+1,in=l;
+    
+while(i<=m && j<=r){
+    if(arr[i]<arr[j]){
+        A[in++] = arr[i++];
+    }  
+    else{
+        A[in++] = arr[j++];
         }
-        else
-        {
-            arr[in++] = A[j++];
-        }
-        for (; i <= m; i++)
-        {
-            arr[in++] = A[i];
-        }
-        for (; j <= r; j++)
-        {
-            arr[in++] = A[j];
-        }
-        for (int i = l; i <= r; i++)
-        {
-            A[i] = arr[i];
-        }
+        
+    }
+    
+    for(;i<=m;i++){
+        
+        A[in++] = arr[i];
+    }
+        
+    for(;j<=r;j++){    
+        A[in++] = arr[j];
+    }
+        
+    for(int i=l;i<=r;i++){
+        arr[i] = A[i];
     }
 }
-void MergeSort(int A[], int l, int r)
-{
-    if (l < r)
-    {
-        int m = (l + r) / 2;
-        MergeSort(A, l, m);
-        MergeSort(A, m + 1, r);
-        Merge(A, l, m, r);
-    }
+
+void merge_sort(int arr[],int l,int r){
+ 
+ if(r>l){
+     
+     int m = (l+r)/2;
+     merge_sort(arr,l,m);
+     merge_sort(arr,m+1,r);
+     merge(arr,l,m,r);
+ }
+    
 }
 
 int main()
 {
+    int n;
+    cout<<"Enter number of elements"<<endl;
+    cin>>n;
+    int a[n];
+    
+for(int i=0;i<n;i++){
+    cin>>a[i];
+}
+    
+merge_sort(a,0,n-1);
 
-    int ar[] = {1, 3, 4, 5, 6, 7, 3, 1, 56};
+for(int i=0;i<n;i++){
+    cout<<a[i]<<" ";
+}
 
-    MergeSort(ar, 0, 8);
-
-    for (int i = 0; i < 9; i++)
-    {
-        cout << ar[i] << endl;
-    }
 }
