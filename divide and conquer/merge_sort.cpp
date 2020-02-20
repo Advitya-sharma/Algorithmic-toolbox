@@ -46,9 +46,9 @@ int main()
 
     int ar[] = {1, 3, 4, 5, 6, 7, 3, 1, 56};
 
-    MergeSort(ar, 0, 9);
+    MergeSort(ar, 0, 8);
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 9; i++)
     {
         cout << ar[i] << endl;
     }
